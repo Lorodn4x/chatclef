@@ -1,53 +1,52 @@
-# Usage Guide
+# Руководство по использованию
 
-Alto Clef has a variety of commands, settings and modes. This will give users an overview on how to use the bot.
+ChatClef имеет множество команд, настроек и режимов. Это руководство даст пользователям обзор того, как использовать бота.
 
-Keep in mind this project is still in rapid development. A lot of features are placeholders and a work in progress.
+Имейте в виду, что этот проект все еще находится в стадии активной разработки. Многие функции являются заглушками и работают в прогрессе.
 
-## Commands
+## Команды
 
-Commands are prefixed with `@`. Here's a list along with their functions:
+Команды начинаются с префикса `@`. Вот список команд и их функций:
 
-| command                | description                                                                                                            | examples      |
-|------------------------|------------------------------------------------------------------------------------------------------------------------|---------------|
-| `help`                 | Lists all commands                                                                                                     |               |
-| `gamer`                | Beats the game epic style                                                                                              | `@gamer`      |
-| `reload_settings`      | Reloads the local settings file. Run this every time you want your settings to be updated.                             |               |
-| `gamma {brightness=1}` | Sets the game's gamma. Useful for testing. 0 is "Moody" and 1 is "Bright", and you can go beyond to enable fullbright. | `@gamma 1000` |
-| `scan`                 | Logs the nearest given block currently found be `BlockScanner`.                                                        | `@scan dirt`  |
-| `status`               | Prints the status of the currently executing command. Mostly useful when running through `/msg`.                       |               |
-| `stop`                 | Forcefully stops the currently running command. The shortcut `CTRL+K` also achieves this.                              |               |
-| `test {testname}`      | Runs a "test" command. These vary, and will be described below.                                                        |               |
+| команда                | описание                                                                                                             | примеры       |
+|------------------------|----------------------------------------------------------------------------------------------------------------------|---------------|
+| `help`                 | Показывает список всех команд                                                                                        |               |
+| `gamer`                | Проходит игру в эпическом стиле                                                                                      | `@gamer`      |
+| `reload_settings`      | Перезагружает локальный файл настроек. Запускайте это каждый раз, когда хотите обновить настройки.                   |               |
+| `gamma {яркость=1}`    | Устанавливает гамму игры. Полезно для тестирования. 0 - "Мрачно", 1 - "Ярко", можно установить выше для полной яркости. | `@gamma 1000` |
+| `scan`                 | Записывает в лог ближайший найденный блок, обнаруженный `BlockScanner`.                                              | `@scan dirt`  |
+| `status`               | Выводит статус текущей выполняемой команды. В основном полезно при запуске через `/msg`.                             |               |
+| `stop`                 | Принудительно останавливает текущую выполняемую команду. Горячая клавиша `CTRL+K` также выполняет это действие.       |               |
+| `test {имя_теста}`     | Запускает "тестовую" команду. Они различаются и будут описаны ниже.                                                  |               |
 
+### Основные тестовые команды
 
-### Notable test commands
+Тестовые команды являются временными/существуют только как эксперимент, но некоторые из них могут быть интересными.
+Например, `@test terminate` запускает терминатор.
+Вот список некоторых основных команд.
 
-Test commands are temporary/only exist as an experiment, but some of these might be interesting.
-For example, `@test terminate` runs the terminator.
-Here's a list of some highlights.
+**примечание** *этот список не включает все тестовые задачи, но обновление его не является моим приоритетом...*
 
-**note** *this list doesn't include all the test tasks, but it is not my priority to update it...*
+| имя теста   | что делает                                                                                                                                                                                                                                                                                             |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `terminate` | Запускает задачу терминатор. Когда без алмазной экипировки, бот убегает от игроков и получает алмазную экипировку + еду. Когда алмазная экипировка надета, бот охотится на близлежащих игроков и ищет чанки, в которых в последний раз видели игроков.                                            |
+| `deadmeme`  | Ожидает, что файл `test.txt` существует в вашей директории `.minecraft`. Читает из этого файла, затем отображает текстовое содержимое файла, размещая таблички в линию. Назван "Задача фильма о пчелах" по глупым причинам. Автоматически собирает таблички и строительные материалы, если у бота заканчиваются. |
+| `173`       | Атакует любого игрока, который не имеет прямой видимости бота, и стоит неподвижно в противном случае. Как плачущий ангел.                                                                                                                                                                              |
+| `replace`   | Заменяет блоки травы в радиусе около 100 блоков верстаками. Часто терпит неудачу при замене блоков травы рядом с водой.                                                                                                                                                                                |
+| `piglin`    | Собирает 12 жемчужин Края через бартер с пиглинами.                                                                                                                                                                                                                                                    |
+| `stacked`   | Собирает алмазную броню, меч и верстак.                                                                                                                                                                                                                                                                |
+| `netherite` | То же, что `stacked`, но для незеритовой экипировки.                                                                                                                                                                                                                                                   |
+| `sign`      | Размещает рядом табличку с текстом "Привет!"                                                                                                                                                                                                                                                           |
+| `bed`       | Нажимает правой кнопкой мыши на близлежащую кровать, чтобы установить точку возрождения бота, размещая её, если она не существует.                                                                                                                                                                     |
 
-| test name   | what it does                                                                                                                                                                                                                                                                                         |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `terminate` | Runs the terminator task. When without diamond gear, the bot flees players and obtains diamond gear + food. When diamond gear is equipped, the bot hunts any nearby players down and searches for any chunks that were last seen to have players in them.                                            |
-| `deadmeme`  | Expects a file to exist in your `.minecraft` directory called `test.txt`. Reads from this file, then displays the text contents of the file by placing signs in a line. Dubbed the "Bee Movie Task" for stupid reasons. Will automatically collect signs and building materials if the bot runs out. |
-| `173`       | Attacks any player that doesn't have direct line of sight to the bot and stands still otherwise. Like a weeping angel.                                                                                                                                                                               | 
-| `replace`   | Replace grass block within around 100 blocks with crafting tables. Frequently fails when replacing grass blocks next to water.                                                                                                                                                                       |
-| `piglin`    | Collects 12 ender pearls via piglin bartering.                                                                                                                                                                                                                                                       |
-| `stacked`   | Collects diamond armor, a sword and a crafting table.                                                                                                                                                                                                                                                |
-| `netherite` | Same as `stacked` but for netherite gear.                                                                                                                                                                                                                                                            |
-| `sign`      | Place a sign nearby that says "Hello there!"                                                                                                                                                                                                                                                         |
-| `bed`       | Right clicks a nearby bed to set the bot's spawnpoint, placing one if it does not exist.                                                                                                                                                                                                             |
+## Настройки/Конфигурация бота
 
-## Bot Settings/Configuration
+После первого запуска игры с модом, папка `altoclef` должна появиться в вашей директории `.minecraft`. Она
+содержит настройки и конфигурации, связанные с `altoclef`.
 
-After running the game with the mod once, a folder called `altoclef` should appear in your `.minecraft` directory. This
-contains `altoclef` related settings and configurations.
+Относительно файла `altoclef_settings.json`
+Проверьте [Settings.java](https://github.com/MiranCZ/altoclef/blob/main/src/main/java/adris/altoclef/Settings.java)
 
-Regarding the `altoclef_settings.json` file
-Check [Settings.java](https://github.com/MiranCZ/altoclef/blob/main/src/main/java/adris/altoclef/Settings.java)
+Другие конфигурации можно найти в поддиректории `configs`. Некоторые настройки `beat_minecraft.json` могут не работать, но я планирую переимплементировать правильные настройки в будущем.
 
-Other configs can be found in the `configs` subdirectory. Some of the `beat_minecraft.json` settings may not work, but I plan to reimplement proper settings in the future.
-
-After modifying your local settings, run `@reload_settings` to apply your changes in-game.
+После изменения ваших локальных настроек, запустите `@reload_settings`, чтобы применить изменения в игре.

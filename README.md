@@ -3,51 +3,50 @@
 <img src="https://cdn.elefant.gg/image/png/chatclef_new_logo.png" width="45%"/>
 </p>
 
-## ChatClef is a Minecraft AI copilot mod that can play the game for you or with you. 
+## ChatClef - это мод ИИ-помощника для Minecraft, который может играть за вас или с вами.
 
-Download the [Player2 app](https://player2.game/), and install Fabric API and this mod in Minecraft to play. You **do not** need to install AltoClef or Baritone separately.
+Установите Fabric API и этот мод в Minecraft для игры. Вам **не нужно** устанавливать AltoClef или Baritone отдельно.
 
-It automates Minecraft tasks from start to finish, including beating the game completely solo. Press Z key to talk to the AI using voice chat.
+Он автоматизирует задачи Minecraft от начала до конца, включая полное прохождение игры в одиночку. Нажмите клавишу Z для голосового общения с ИИ.
 
-👉 [Check releases](https://github.com/elefant-ai/chatclef/releases)
+👉 [Проверить релизы](https://github.com/elefant-ai/chatclef/releases)
 
-## What is ChatClef?
+## Что такое ChatClef?
 
-ChatClef is a client-side AI mod designed to be your Minecraft copilot/friend.
-If you can open a second client, ChatClef can take over that instance and act as a second AI-controlled player in multiplayer.
+ChatClef - это клиентский мод ИИ, предназначенный быть вашим помощником/другом в Minecraft.
+Если вы можете открыть второй клиент, ChatClef может взять управление этим экземпляром и действовать как второй игрок, управляемый ИИ, в мультиплеере.
 
-To get the AI working, you need to have the [Player2 app](https://player2.game/), install Fabric API and this mod in Minecraft, and start Minecraft.
-Once installed, the AI will be able to:
+Для работы ИИ вам нужно установить Fabric API и этот мод в Minecraft, и запустить Minecraft.
+После установки ИИ сможет:
 
-- Chat with you
-- Complete tasks for you
-- Beat the game solo
-- Or just mess around with you like a chaotic Minecraft sidekick
+- Общаться с вами
+- Выполнять задачи для вас  
+- Проходить игру в одиночку
+- Или просто дурачиться с вами как хаотичный напарник в Minecraft
 
-It builds on top of [Player2](https://player2.game), [AltoClef](https://github.com/MiranCZ/altoclef) and [Baritone](https://github.com/cabaletta/baritone). It’s completely free, open-source, and constantly being improved.
-
----
-
-## How it works
-This mod adds the Player2 interface to [AltoClef](https://github.com/MiranCZ/altoclef) and [Baritone](https://github.com/cabaletta/baritone).
-The Player2 App provides free STT, TTS, and LLM functions. Make sure the Player2 App is running while using this mod.
-Press Z to talk to the AI using voice. You can change the key binding in settings.
-Memory and conversation history are stored in the mod folder under the AI's name if you need to view them.
-Be careful not to edit the file if you don't know what you are doing, we won't be responsible if your edit cause any problems.
+Он построен поверх [AltoClef](https://github.com/MiranCZ/altoclef) и [Baritone](https://github.com/cabaletta/baritone). Он полностью бесплатный, с открытым исходным кодом и постоянно улучшается.
 
 ---
 
-## Download
+## Как это работает
 
-**Note:** After installing, please move/delete your old Baritone configurations if you have any.  
-Existing Baritone configs can interfere with ChatClef and introduce bugs (this will be fixed in the future).
-
----
-
-## Development Setup
-
-Simply open the project in a java IDE such as IntelliJ or Eclipse, then change your SDK to a valid version (we used temurin-21), then wait for the project to build. Once you do, you should be able to run Gradle tasks such as runClient to test the bot, and build to build the jar files. To collect all of the jar files for different versions into a single folder, run `project_root/gather_jars.sh`, which will copy all of the jar files to `project_root/build`.
+Этот мод добавляет интерфейс OpenAI к [AltoClef](https://github.com/MiranCZ/altoclef) и [Baritone](https://github.com/cabaletta/baritone).
+Наш OpenAI-совместимый API предоставляет функции LLM, STT и TTS.
+Нажмите Z для голосового общения с ИИ. Вы можете изменить привязку клавиши в настройках.
+Память и история разговоров хранятся в папке мода под именем ИИ, если вам нужно их просмотреть.
+Будьте осторожны при редактировании файла, если не знаете, что делаете - мы не несем ответственности, если ваши изменения вызовут проблемы.
 
 ---
 
+## Скачивание
 
+**Примечание:** После установки, пожалуйста, переместите/удалите ваши старые конфигурации Baritone, если они у вас есть.  
+Существующие конфигурации Baritone могут мешать ChatClef и вводить баги (это будет исправлено в будущем).
+
+---
+
+## Настройка разработки
+
+Просто откройте проект в Java IDE, такой как IntelliJ или Eclipse, затем измените ваш SDK на действующую версию (мы использовали temurin-21), затем дождитесь сборки проекта. После этого вы сможете запускать задачи Gradle, такие как runClient для тестирования бота, и build для сборки jar файлов. Чтобы собрать все jar файлы для разных версий в одну папку, запустите `project_root/gather_jars.sh`, который скопирует все jar файлы в `project_root/build`.
+
+---
