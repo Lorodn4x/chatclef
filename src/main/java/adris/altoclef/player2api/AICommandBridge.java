@@ -110,12 +110,12 @@ public class AICommandBridge {
     }
 
     /**
-     * Updates this. (conversationHistory, character) based on the currently
-     * selected character.
+     * Updates this. (conversationHistory, character) using the default character
+     * since we no longer fetch from external API.
      */
     private void updateInfo() {
         System.out.println("Updating info");
-        Character newCharacter = Player2APIService.getSelectedCharacter();
+        Character newCharacter = OpenAIService.getDefaultCharacter();
         // System.out.println(newCharacter);
         // SkinChanger.changeSkinFromUsername("Dream", SkinType.CLASSIC);
         this.character = newCharacter;
@@ -181,7 +181,7 @@ public class AICommandBridge {
                 ConversationHistory historyWithStatus = conversationHistory.copyThenWrapLatestWithStatus(worldStatus,
                         agentStatus, altoClefDebugMsgs);
                 System.out.printf("[AICommandBridge/processChatWithAPI]: History: %s", historyWithStatus.toString());
-                JsonObject response = Player2APIService.completeConversation(historyWithStatus);
+                JsonObject response = OpenAIService.completeConversation(historyWithStatus);
                 String responseAsString = response.toString();
                 System.out.println("[AICommandBridge/processChatWithAPI]: LLM Response: " + responseAsString);
                 conversationHistory.addAssistantMessage(responseAsString);
@@ -190,7 +190,7 @@ public class AICommandBridge {
                 String llmMessage = Utils.getStringJsonSafely(response, "message");
                 if (llmMessage != null && !llmMessage.isEmpty()) {
                     mod.logCharacterMessage(llmMessage, character, getPlayerMode());
-                    Player2APIService.textToSpeech(llmMessage, character);
+                    OpenAIService.textToSpeech(llmMessage, character);
                 }
 
                 // process command
@@ -257,7 +257,7 @@ public class AICommandBridge {
 
     public void sendHeartbeat() {
         llmThread.submit(() -> {
-            Player2APIService.sendHeartbeat();
+            OpenAIService.sendHeartbeat();
         });
     }
 
@@ -303,12 +303,12 @@ public class AICommandBridge {
     }
 
     public void startSTT() {
-        sttThread.execute(Player2APIService::startSTT);
+        sttThread.execute(OpenAIService::startSTT);
     }
 
     public void stopSTT() {
         sttThread.execute(() -> {
-            String result = Player2APIService.stopSTT();
+            String result = OpenAIService.stopSTT();
 
             if(!_enabled){
                 mod.getMessageSender().enqueueChat(result, null);

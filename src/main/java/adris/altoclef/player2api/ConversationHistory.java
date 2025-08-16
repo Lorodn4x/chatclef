@@ -113,7 +113,7 @@ public class ConversationHistory {
 
         // temp.addUserMessage("Now return the summary.");
         try {
-            String resp = Player2APIService.completeConversationToString(temp);
+            String resp = OpenAIService.completeConversationToString(temp);
             return resp;
         } catch (Exception e) {
             e.printStackTrace();
